@@ -1,0 +1,31 @@
+body{
+    background-color: rgba(200, 200, 210);
+}
+
+button{
+    color: black;
+}
+
+img{
+    border: 3px solid black;
+}
+
+.topnav{
+    background: rgba(255, 255, 255, 0.25);
+    margin: 5px;
+    margin-inline: auto;
+    padding: 10px;
+    text-align: center;
+    width: fit-content;
+}
+
+.topnav a{
+    color: black;
+    padding: 5px;
+    text-decoration: none;
+}
+
+.topnav a:hover{
+    background-color: white;
+    color: grey;
+}
