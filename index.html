@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="3n">
+<html lang="en">
   <head>
     <title>AEI Team Mico-Hackathon</title>
     <link rel="stylesheet" href="main.css">
@@ -14,6 +14,7 @@
       <a href="#">Link 3</a>
       <a href="#">Link 4</a>
     </div>
+
     <button onclick="testclick()">
       Click!</button>
     <p id="test"></p>
@@ -22,6 +23,18 @@
         document.getElementById("test").innerHTML = "hi";
       }
     </script>
+
+    <input id="input" type="text" placeholder="Name">
+    <button id="button" onclick="Submit()">Submit</button>
+    <p id="output"></p>
+    <script>
+      const input = document.getElementById("input");
+      const output = document.getElementById("output");
+      function Submit(){
+        output.innerHTML = input.value;
+      }
+    </script>
+    
     <p>Information about the project will go here, 
       as soon as I know what it's gonna be about.</p>
     <img src="testimage.jpg" alt="um hi">
