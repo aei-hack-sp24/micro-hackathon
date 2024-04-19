@@ -28,15 +28,15 @@ def parse_schedule_data(schedule_data):
             df.loc[x, 'Title'] = sched['Title'].iloc[x]
             df.loc[x, 'Tags'] = sched['Tags'].iloc[x]
                     
-    return df;
+    return df
     #df.to_csv(file, index=False)  
 
 
 
 
 def add_events_to_schedule(events_data, class_schedule):
-    for event in events_data:
-        event_date = events_data['Date'].iloc[event] #event['Date']
+    for index, event in events_data.iterrows():
+        event_date = event['Date']  # Accessing 'Date' directly from the 'event' DataFrame row
         event_start_time = event['Start']
         event_end_time = event['Finish']
         
@@ -51,9 +51,10 @@ def add_events_to_schedule(events_data, class_schedule):
                     break
             
             if event_fits:
-                class_schedule[event_date].append(event)
+                class_schedule[event_date].append(event.to_dict())  # Append the entire row as a dictionary
     
     return class_schedule
+
 
 
 if __name__ == "__main__":
