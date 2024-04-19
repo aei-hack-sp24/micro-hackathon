@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="main.css">
   </head>
   <body>
+    <script src= 
+"https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"> 
+</script> 
     <style>
       table, tr, th, td{
         border: 1px solid black;
@@ -36,23 +39,46 @@
     </p>
 
     <div class = "options">
-      <label for="Food">Food</label>
-      <input type="checkbox" id="Food" name="Food" value="FoodCheck"><br>
-      <label for="Social">Social</label>
-      <input type="checkbox" id="Social" name="Social" value="SocialCheck"><br>
-      <label for="Technology">Technology</label>
-      <input type="checkbox" id="Technology" name="Technology" value="TechnologyCheck"><br>
-      <label for="Sports">Sports</label>
-      <input type="checkbox" id="Sports" name="Sports" value="SportsCheck"><br>
-      <label for="VideoGames">Video Games</label>
-      <input type="checkbox" id="VideoGames" name="VideoGames" value="VideoGamesCheck"><br>
-      <label for="Shopping">Shopping</label>
-      <input type="checkbox" id="Shopping" name="Shopping" value="ShoppingCheck"><br>
-      <label for="Learning">Learning</label>
-      <input type="checkbox" id="Learning" name="Learning" value="LearningCheck"><br>
-      <label for="Sports">Sports</label>
-      <input type="checkbox" id="Sports" name="Sports" value="SportsCheck"><br>
-    </div>
+
+      <p id="GFG_UP"> 
+      </p> 
+      <input type="checkbox" name="type" value="Food" /> Food
+      <input type="checkbox" name="type" value="Social" /> Social
+      <input type="checkbox" name="type" value="Technology" /> Technology
+      <input type="checkbox" name="type" value="Sports" /> Sports
+      <input type="checkbox" name="type" value="Video Games" /> Video Games
+      <input type="checkbox" name="type" value="Shopping" /> Shopping
+      <input type="checkbox" name="type" value="Learning" /> Learning
+      <input type="checkbox" name="type" value="Sports" /> Sports
+      <br> 
+      <button> 
+          click here 
+      </button> 
+      <p id="GFG_DOWN"> 
+      </p> 
+      <script> 
+          $('#GFG_UP') 
+          .text('First check few elements then click on the button.'); 
+          $('button').on('click', function(e) { 
+              e.preventDefault();
+              let array = []; 
+              $("input:checkbox[name=type]:checked").each(function() { 
+                  array.push($(this).val()); 
+              });            
+              if(array.length){
+                  $('#GFG_DOWN')
+                    .text(`${array}`); 
+              }
+              else{
+                  $('#GFG_DOWN')
+                    .text("Food, Social, Technology, Sports, Video Games, Shopping, Learning, Sports"); 
+              }
+          }); 
+          </script> 
+
+
+
+    </script>    
 
     <table bgcolor="white" align="center" cellspacing="40" cellpadding="50">
       <thead>
