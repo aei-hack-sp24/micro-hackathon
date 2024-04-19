@@ -54,12 +54,11 @@ def add_events_to_schedule(events_data, class_schedule):
             if event_fits:
                 class_schedule[event_date].append(event.to_dict())  # Append the entire row as a dictionary
     
-    print(class_schedule)
+    #print(class_schedule)
     return class_schedule
 
 
 #class schedule not changing?
-
 
 
 if __name__ == "__main__":
@@ -71,5 +70,9 @@ if __name__ == "__main__":
     event_schedule = parse_schedule_data(event_data_schedule)
     
     add_events_to_schedule(event_schedule, elizabeth_schedule)
+    
+    
+    final = (elizabeth_schedule.merge(event_schedule , how='outer'))
+    final.to_csv("schedules.csv")
     
     
