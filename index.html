@@ -1,10 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <img src = "https://www.csun.edu/sites/default/themes/csun/logoCSUN.png">
     <title>AEI Team Mico-Hackathon</title>
     <link rel="stylesheet" href="main.css">
   </head>
   <body>
+    <script src= 
+"https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"> 
+</script> 
+    <style>
+      table, tr, th, td{
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+
+      td{
+        text-align: right;
+        vertical-align: top;
+        padding-top: 5px;
+        padding-right: 10px;
+        /* position: absolute;
+        top: 8px;
+        right: 16px;
+        font-size: 18px; */
+      }
+    </style>
+  <h2>Calander</h2>
+    <p>
+      The Student Recreation Center (SRC) of the University Student Union (USU) at CSUN invites all students and the campus community 
+      to participate in our diverse range of virtual fitness events, programs and services happening during the Spring 2021 semester. 
+      Every SRC offering listed below is intended to optimize your sense of belonging at CSUN through student engagement, connection 
+      and community building.
+    </p>
+    <p></p>
+    <p>
+      Here’s more information about these exciting virtual fitness opportunities coming up for you at the SRC of the USU…Where Matadors Belong!
+    </p>
+
+    <div class = "options">
+
+      <p id="GFG_UP"> 
+      </p> 
+      <input type="checkbox" name="type" value="Food" /> Food
+      <input type="checkbox" name="type" value="Social" /> Social
+      <input type="checkbox" name="type" value="Technology" /> Technology
+      <input type="checkbox" name="type" value="Sports" /> Sports
+      <input type="checkbox" name="type" value="Video Games" /> Video Games
+      <input type="checkbox" name="type" value="Shopping" /> Shopping
+      <input type="checkbox" name="type" value="Learning" /> Learning
+      <input type="checkbox" name="type" value="Sports" /> Sports
+      <br> 
+      <button> 
+          click here 
+      </button> 
+      <p id="GFG_DOWN"> 
+      </p> 
+      <script> 
+          $('#GFG_UP') 
+          .text('First check few elements then click on the button.'); 
+          $('button').on('click', function(e) { 
+              e.preventDefault();
+              let array = []; 
+              $("input:checkbox[name=type]:checked").each(function() { 
+                  array.push($(this).val()); 
+              });            
+              if(array.length){
+                  $('#GFG_DOWN')
+                    .text(`${array}`); 
+              }
+              else{
+                  $('#GFG_DOWN')
+                    .text("Food, Social, Technology, Sports, Video Games, Shopping, Learning, Sports"); 
+              }
+          }); 
+          </script> 
+
+
+
+    </script>    
+
+    <table bgcolor="white" align="center" cellspacing="40" cellpadding="50">
+      <thead>
+        <tr>
+          <th>
+            Sun
+          </th>
+          <th>
+            Mon
+          </th>
+          <th>
+            Tue
+          </th>
+          <th>
+            Wed
+          </th>
+          <th>
+            Thu
+          </th>
+          <th>
+            Fri
+          </th>
+          <th>
+            Sat
+          </th>
+        </tr>    
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>31</td>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+          <td>4</td>
+          <td>5</td>
+          <td>6</td>
+        </tr>
+        <tr></tr>
+        <tr>
+          <td>7</td>
+          <td>8</td>
+          <td>9</td>
+          <td>10</td>
+          <td>11</td>
+          <td>12</td>
+          <td>13</td>
+        </tr>
+        <tr></tr>
+        <tr>
+          <td>14</td>
+          <td>15</td>
+          <td>16</td>
+          <td>17</td>
+          <td>18</td>
+          <td>19</td>
+          <td>20</td>
+        </tr>
+        <tr></tr>
+        <td>21</td>
+        <td>22</td>
+        <td>23</td>
+        <td>24</td>
+        <td>25</td>
+        <td>26</td>
+        <td>27</td>
+      </tbody>
+  </table>
+
+    <tbody>
+      <tr>
+        <td></td>
+      </tr>
+    </tbody>
     <h1>AEI Team Micro-Hackathon Spring 2024</h1>
     <h2>Members: A.N., E.M., I.S.</h2>
     <h3>Prompt: idk yet</h3>
