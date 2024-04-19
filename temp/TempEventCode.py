@@ -1,3 +1,4 @@
+
 import pandas as pd
 
 def parse_schedule_data(schedule_data):
@@ -40,9 +41,8 @@ def add_events_to_schedule(events_data, class_schedule):
         event_start_time = event['Start']
         event_end_time = event['Finish']
         
-        if event_date in class_schedule.values:
-            print("true")
-            class_slots = class_schedule[event_date] #something here
+        if event_date in class_schedule:
+            class_slots = class_schedule[event_date]  # Accessing the list of events for the event_date
             event_fits = True
             for slot in class_slots:
                 class_start_time = slot['Start']
@@ -56,6 +56,7 @@ def add_events_to_schedule(events_data, class_schedule):
     
     print(class_schedule)
     return class_schedule
+
 
 #class schedule not changing?
 
