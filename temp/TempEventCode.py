@@ -40,8 +40,9 @@ def add_events_to_schedule(events_data, class_schedule):
         event_start_time = event['Start']
         event_end_time = event['Finish']
         
-        if event_date in class_schedule:
-            class_slots = class_schedule[event_date]
+        if event_date in class_schedule.values:
+            print("true")
+            class_slots = class_schedule[event_date] #something here
             event_fits = True
             for slot in class_slots:
                 class_start_time = slot['Start']
@@ -53,7 +54,10 @@ def add_events_to_schedule(events_data, class_schedule):
             if event_fits:
                 class_schedule[event_date].append(event.to_dict())  # Append the entire row as a dictionary
     
+    print(class_schedule)
     return class_schedule
+
+#class schedule not changing?
 
 
 
