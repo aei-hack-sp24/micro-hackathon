@@ -1,17 +1,42 @@
 import pandas as pd
 
 def parse_schedule_data(schedule_data):
-    schedule = {}
-    for index, row in schedule_data.iterrows():
-        date = row['Date']
-        if date not in schedule:
-            schedule[date] = []
-        schedule[date].append({'Start': row['Start'], 'Finish': row['Finish']})
-    return schedule
+    
+    sched = pd.DataFrame(data=schedule_data)
+    #print(sched)
+    
+    data = { 
+    "ID": ['1','2','3','4','5','6','7'],
+    "Date": ['4-21-2024','4-22-2024','4-23-2024','4-24-2024','4-25-2024','4-26-2024','4-27-2024'],
+    "Start": ['','','','','','',''],
+    "Finish": ['','','','','','',''],
+    "Title": ['','','','','','',''],
+    "Tags": ['','','','','','','']
+    }
+    
+    df = pd.DataFrame(data=data)
+    
+    #filename = "studentsched.csv"
+    
+    #with open(filename, 'w') as file:
+    for x in range(7): 
+            #print(df['Date'].iloc[x])
+        if df['Date'].iloc[x] in sched.values: 
+                #put that date into csv  
+            df.loc[x, 'Start'] = sched['Start'].iloc[x]
+            df.loc[x, 'Finish'] = sched['Finish'].iloc[x]
+            df.loc[x, 'Title'] = sched['Title'].iloc[x]
+            df.loc[x, 'Tags'] = sched['Tags'].iloc[x]
+                    
+    return df;
+    #df.to_csv(file, index=False)  
+
+
+
 
 def add_events_to_schedule(events_data, class_schedule):
     for event in events_data:
-        event_date = event['Date']
+        event_date = events_data['Date'].iloc[event] #event['Date']
         event_start_time = event['Start']
         event_end_time = event['Finish']
         
@@ -30,24 +55,15 @@ def add_events_to_schedule(events_data, class_schedule):
     
     return class_schedule
 
+
 if __name__ == "__main__":
     # Load Elizabeth's schedule data from "ElizabethSchedule.csv"
     elizabeth_schedule_data = pd.read_csv('ElizabethSchedule.csv')
     elizabeth_schedule = parse_schedule_data(elizabeth_schedule_data)
     
-    events_data = [
-        {"ID": 3, "Date": "4/18/2024", "Start": "Afternoon", "Finish": "Evening", "Title": "Coffee Hangout", "Tags": "Food, Social"},
-        {"ID": 4, "Date": "4/19/2024", "Start": "Morning", "Finish": "Afternoon", "Title": "Super Micro Technology", "Tags": "Technology"},
-        # Add more events here...
-    ]
+    event_data_schedule = pd.read_csv('CSUNschedule.csv')
+    event_schedule = parse_schedule_data(event_data_schedule)
     
-    updated_schedule = add_events_to_schedule(events_data, elizabeth_schedule)
+    add_events_to_schedule(event_schedule, elizabeth_schedule)
     
-    updated_schedule_rows = []
-    for date, events in updated_schedule.items():
-        for event in events:
-            updated_schedule_rows.append({'Date': date, 'Start': event['Start'], 'Finish': event['Finish'], 'Title': event.get('Title', ''), 'Tags': event.get('Tags', '')})
     
-    updated_schedule_df = pd.concat([pd.DataFrame(updated_schedule_rows), pd.DataFrame(columns=['Date', 'Start', 'Finish', 'Title', 'Tags'])], ignore_index=True)
-    
-    updated_schedule_df.to_csv('updated_schedule.csv', index=False)
